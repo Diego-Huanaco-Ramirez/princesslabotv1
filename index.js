@@ -3,6 +3,11 @@ const client = new Discord.Client();
 
 let prefix = "PL";
 
+client.on('ready', () => {
+    client.user.setActivity('bot en heroku', {type: 'WATCHING'});
+    console.log('Listo!');
+});
+
 client.on('message', message => {
     client.user.setActivity("PLC");
     if (!message.content.toUpperCase().startsWith(prefix) || !message.guild) return;
